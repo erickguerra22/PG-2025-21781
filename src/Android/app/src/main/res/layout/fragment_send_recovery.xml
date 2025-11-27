@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/logInFragment_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:paddingHorizontal="30dp"
+    android:theme="@style/Theme.CiudadanoDigital"
+    tools:context=".ui.fragment.recovery.SendRecoveryFragment">
+
+    <ImageView
+        android:id="@+id/sendRecoveryFragment_logoImageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="18dp"
+        android:contentDescription="@string/logo_description"
+        android:src="@drawable/sapien_logo"
+        app:layout_constraintBottom_toTopOf="@id/sendRecoveryFragment_titleRecovery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/sendRecoveryFragment_titleRecovery"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/urbanist"
+        android:text="@string/restore_password_label"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/sendRecoveryFragment_textRecovery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sendRecoveryFragment_logoImageView" />
+
+    <TextView
+        android:id="@+id/sendRecoveryFragment_textRecovery"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/urbanist"
+        android:text="@string/recovery_advice"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textColorLink="@color/help_color"
+        android:textSize="@dimen/small_text"
+        app:layout_constraintBottom_toTopOf="@+id/sendRecoveryFragment_emailTextInput"
+        app:layout_constraintEnd_toEndOf="@+id/sendRecoveryFragment_emailTextInput"
+        app:layout_constraintStart_toStartOf="@+id/sendRecoveryFragment_emailTextInput"
+        app:layout_constraintTop_toBottomOf="@id/sendRecoveryFragment_titleRecovery" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sendRecoveryFragment_emailTextInput"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:autofillHints="emailAddress"
+        android:labelFor="@id/sendRecoveryFragment_emailEditText"
+        android:textColorHint="@color/placeholder"
+        app:boxBackgroundColor="@color/input_background"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="@dimen/input_radius"
+        app:boxCornerRadiusTopStart="@dimen/input_radius"
+        app:boxStrokeColor="@color/placeholder"
+        app:boxStrokeWidth="1.5dp"
+        app:hintTextColor="@color/placeholder"
+        app:layout_constraintBottom_toTopOf="@id/sendRecoveryFragment_recoveryButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sendRecoveryFragment_textRecovery"
+        app:placeholderTextColor="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sendRecoveryFragment_emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="@color/placeholder"
+            android:textSize="@dimen/normal_text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sendRecoveryFragment_recoveryButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/input_background"
+        android:elevation="20dp"
+        android:fontFamily="@font/urbanist"
+        android:letterSpacing="0"
+        android:paddingVertical="18dp"
+        android:text="@string/send_code_label"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sendRecoveryFragment_emailTextInput" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/sendRecoveryFragment_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/help_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="@string/square"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sendRecoveryFragment_emailTextInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

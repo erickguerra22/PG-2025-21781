@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/documentsFragment_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:clipToPadding="false"
+    android:padding="10dp"
+    android:theme="@style/Theme.CiudadanoDigital"
+    tools:context=".ui.fragment.documents.DocumentsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/documentsFragment_layoutContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color">
+
+        <ImageButton
+            android:id="@+id/documentsFragment_panelImageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="50dp"
+            android:background="@null"
+            android:contentDescription="@string/open_chats"
+            android:src="@drawable/inbox2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/documentsFragment_titleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/urbanist"
+            android:text="@string/documents_label"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/documentsFragment_documentsRecycler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/documentsFragment_documentsRecycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/documentsFragment_addDocumentButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/documentsFragment_titleText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/documentsFragment_addDocumentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/input_background"
+            android:elevation="20dp"
+            android:fontFamily="@font/urbanist"
+            android:letterSpacing="0"
+            android:paddingVertical="18dp"
+            android:text="@string/add_label"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/add"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/documentsFragment_documentsRecycler" />
+
+        <View
+            android:id="@+id/documentsFragment_overlayView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CB646464"
+            android:elevation="2dp"
+            android:visibility="gone" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/documentsFragment_formNewDocument"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:backgroundTint="@color/main_color"
+            android:elevation="15dp"
+            android:visibility="gone"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="20dp">
+
+                <TextView
+                    android:id="@+id/formNewDocument_formTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/urbanist"
+                    android:text="@string/document_form_title"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/formNewDocument_titleTextInput"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="15dp"
+                    android:labelFor="@id/formNewDocument_titleEditText"
+                    android:textColorHint="@color/placeholder"
+                    app:boxBackgroundColor="@color/input_background"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusBottomEnd="@dimen/input_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/input_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_radius"
+                    app:boxCornerRadiusTopStart="@dimen/input_radius"
+                    app:boxStrokeColor="@android:color/transparent"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/placeholder"
+                    app:layout_constraintBottom_toTopOf="@+id/formNewDocument_authorTextInput"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/formNewDocument_formTitle"
+                    app:placeholderTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/formNewDocument_titleEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/document_title_placeholder"
+                        android:inputType="text"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/placeholder"
+                        android:textSize="@dimen/normal_text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/formNewDocument_authorTextInput"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:labelFor="@id/formNewDocument_authorEditText"
+                    android:textColorHint="@color/placeholder"
+                    app:boxBackgroundColor="@color/input_background"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusBottomEnd="@dimen/input_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/input_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_radius"
+                    app:boxCornerRadiusTopStart="@dimen/input_radius"
+                    app:boxStrokeColor="@android:color/transparent"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/placeholder"
+                    app:layout_constraintBottom_toTopOf="@+id/formNewDocument_yearTextInput"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/formNewDocument_titleTextInput"
+                    app:placeholderTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/formNewDocument_authorEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/author_document_placeholder"
+                        android:inputType="text"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/placeholder"
+                        android:textSize="@dimen/normal_text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/formNewDocument_yearTextInput"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:labelFor="@id/formNewDocument_yearEditText"
+                    android:textColorHint="@color/placeholder"
+                    app:boxBackgroundColor="@color/input_background"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusBottomEnd="@dimen/input_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/input_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_radius"
+                    app:boxCornerRadiusTopStart="@dimen/input_radius"
+                    app:boxStrokeColor="@android:color/transparent"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/placeholder"
+                    app:layout_constraintBottom_toTopOf="@id/formNewDocument_ageSliderLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/formNewDocument_authorTextInput"
+                    app:placeholderTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/formNewDocument_yearEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/year_document_placeholder"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/placeholder"
+                        android:textSize="@dimen/normal_text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/formNewDocument_ageSliderLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/urbanist"
+                    android:text="@string/document_ages_label"
+                    android:textColor="@color/placeholder"
+                    android:textSize="@dimen/normal_text"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/formNewDocument_ageSlider"
+                    app:layout_constraintEnd_toEndOf="@id/formNewDocument_ageSlider"
+                    app:layout_constraintStart_toStartOf="@id/formNewDocument_ageSlider"
+                    app:layout_constraintTop_toBottomOf="@+id/formNewDocument_yearTextInput" />
+
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/formNewDocument_ageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stepSize="1"
+                    android:valueFrom="5"
+                    android:valueTo="22"
+                    app:layout_constraintBottom_toTopOf="@id/formNewDocument_ageSliderPreview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/formNewDocument_ageSliderLabel"
+                    app:values="@array/default_age_range" />
+
+                <TextView
+                    android:id="@+id/formNewDocument_ageSliderPreview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist"
+                    android:text="@string/age_slider_placeholder"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toTopOf="@id/formNewDocument_addFile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/formNewDocument_ageSlider" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/formNewDocument_addFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/clear_input_background"
+                    android:fontFamily="@font/urbanist"
+                    android:letterSpacing="0"
+                    android:padding="5dp"
+                    android:text="@string/add_file_label"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="normal"
+                    app:cornerRadius="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/formNewDocument_saveDocument"
+                    app:layout_constraintEnd_toStartOf="@+id/formNewDocument_fileName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/formNewDocument_ageSliderPreview" />
+
+                <TextView
+                    android:id="@+id/formNewDocument_fileName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/file_name_placeholder"
+                    android:textAlignment="center"
+                    android:textColor="@color/placeholder"
+                    app:layout_constraintBottom_toBottomOf="@id/formNewDocument_addFile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/formNewDocument_addFile"
+                    app:layout_constraintTop_toTopOf="@id/formNewDocument_addFile" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/formNewDocument_saveDocument"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/input_background"
+                    android:fontFamily="@font/urbanist"
+                    android:letterSpacing="0"
+                    android:paddingHorizontal="40dp"
+                    android:paddingVertical="10dp"
+                    android:text="@string/save_label"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/formNewDocument_addFile" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

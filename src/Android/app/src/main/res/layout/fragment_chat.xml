@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chatFragment_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.chat.ChatFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chatFragment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        android:padding="10dp"
+        android:theme="@style/Theme.CiudadanoDigital">
+
+        <ImageButton
+            android:id="@+id/chatFragment_panelImageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="50dp"
+            android:background="@null"
+            android:contentDescription="@string/open_chats"
+            android:src="@drawable/inbox2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/chatFragment_logoImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/logo_description"
+            android:src="@drawable/sapien_logo"
+            app:layout_constraintBottom_toTopOf="@id/chatFragment_welcomeTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/chatFragment_welcomeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/urbanist"
+            android:gravity="center"
+            android:text="@string/saludo_inicial"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/chatFragment_messageTextInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chatFragment_logoImageView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatFragment_messagesRecycler"
+            android:layout_width="0dp"
+            app:stackFromEnd="true"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/chatFragment_messageTextInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chatFragment_panelImageButton" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/chatFragment_messageTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical"
+            app:boxBackgroundColor="#21304D"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusBottomEnd="@dimen/question_radius"
+            app:boxCornerRadiusBottomStart="@dimen/question_radius"
+            app:boxCornerRadiusTopEnd="@dimen/question_radius"
+            app:boxCornerRadiusTopStart="@dimen/question_radius"
+            app:boxStrokeColor="@android:color/transparent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconDrawable="@drawable/send_icon_w_bg"
+            app:endIconMode="custom"
+            app:endIconTint="@null"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/chatFragment_messageEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/urbanist"
+                android:hint="@string/chat_placeholder"
+                android:inputType="text"
+                android:paddingHorizontal="0dp"
+                android:paddingVertical="16dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/placeholder"
+                android:textSize="24sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

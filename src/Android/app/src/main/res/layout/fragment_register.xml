@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registerFragment_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.CiudadanoDigital"
+    tools:context=".ui.fragment.register.RegisterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color"
+        android:paddingHorizontal="30dp"
+        android:paddingTop="60dp">
+
+        <TextView
+            android:id="@+id/registerFragment_titleRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/urbanist"
+            android:text="@string/register_title"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/registerFragment_emailTextInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerFragment_emailTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:autofillHints="emailAddress"
+            android:labelFor="@id/registerFragment_emailEditText"
+            android:textColorHint="@color/placeholder"
+            app:boxBackgroundColor="@color/input_background"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="@dimen/input_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_radius"
+            app:boxStrokeColor="@color/placeholder"
+            app:boxStrokeWidth="1.5dp"
+            app:hintTextColor="@color/placeholder"
+            app:layout_constraintBottom_toTopOf="@id/registerFragment_nameTextInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerFragment_titleRegister"
+            app:placeholderTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerFragment_emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:textColorHint="@color/placeholder"
+                android:textSize="@dimen/normal_text"
+                tools:text="ejemplo@uvg.edu.gt" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerFragment_nameTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="@dimen/two_column_gap"
+            android:autofillHints="name"
+            android:labelFor="@id/registerFragment_nameEditText"
+            android:textColorHint="@color/placeholder"
+            app:boxBackgroundColor="@color/input_background"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="@dimen/input_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_radius"
+            app:boxStrokeColor="@color/placeholder"
+            app:boxStrokeWidth="1.5dp"
+            app:hintTextColor="@color/placeholder"
+            app:layout_constraintBottom_toTopOf="@id/registerFragment_birthdateTextInput"
+            app:layout_constraintEnd_toStartOf="@id/registerFragment_lastnameTextInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerFragment_emailTextInput"
+            app:placeholderTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerFragment_nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/placeholder"
+                android:textSize="@dimen/normal_text"
+                tools:text="Juan" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerFragment_lastnameTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/two_column_gap"
+            android:autofillHints="lastname"
+            android:labelFor="@id/registerFragment_lastnameEditText"
+            android:textColorHint="@color/placeholder"
+            app:boxBackgroundColor="@color/input_background"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="@dimen/input_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_radius"
+            app:boxStrokeColor="@color/placeholder"
+            app:boxStrokeWidth="1.5dp"
+            app:hintTextColor="@color/placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/registerFragment_nameTextInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/registerFragment_nameTextInput"
+            app:layout_constraintTop_toTopOf="@id/registerFragment_nameTextInput"
+            app:placeholderTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerFragment_lastnameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lastname"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/placeholder"
+                android:textSize="@dimen/normal_text"
+                tools:text="Pérez" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerFragment_birthdateTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="birthdate"
+            android:labelFor="@id/registerFragment_birthdateEditText"
+            android:textColorHint="@color/placeholder"
+            app:boxBackgroundColor="@color/input_background"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="@dimen/input_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_radius"
+            app:boxStrokeColor="@color/placeholder"
+            app:boxStrokeWidth="1.5dp"
+            app:endIconDrawable="@drawable/date"
+            app:endIconMode="custom"
+            app:endIconTint="@color/placeholder"
+            app:hintTextColor="@color/placeholder"
+            app:layout_constraintBottom_toTopOf="@id/registerFragment_phonecodeTextInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerFragment_nameTextInput"
+            app:placeholderTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerFragment_birthdateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/birthdate"
+                android:inputType="none"
+                android:textColor="@color/white"
+                android:textColorHint="@color/placeholder"
+                android:textSize="@dimen/normal_text"
+                tools:text="10/01/1998" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerFragment_phonecodeTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="@dimen/two_column_gap"
+            android:autofillHints="phonecode"
+            android:hint="@string/phonecode"
+            android:labelFor="@id/registerFragment_phonecodeEditText"
+            android:textColorHint="@color/placeholder"
+            app:boxBackgroundColor="@color/input_background"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="@dimen/input_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_radius"
+            app:boxStrokeColor="@color/placeholder"
+            app:boxStrokeWidth="1.5dp"
+            app:endIconMinSize="5dp"
+            app:endIconMode="dropdown_menu"
+            app:endIconTint="@color/white"
+            app:hintTextColor="@color/placeholder"
+            app:layout_constraintBottom_toTopOf="@id/registerFragment_passwordTextInput"
+            app:layout_constraintEnd_toStartOf="@id/registerFragment_phoneTextInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerFragment_birthdateTextInput"
+            app:layout_constraintWidth_percent="0.4"
+            app:placeholderTextColor="@color/white">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/registerFragment_phonecodeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:ellipsize="end"
+                android:focusable="false"
+                tools:text="+502 🇬🇹"
+                android:paddingTop="25dp"
+                android:paddingStart="17dp"
+                android:paddingEnd="17dp"
+                android:paddingBottom="9dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/placeholder"
+                android:textSize="@dimen/normal_text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerFragment_phoneTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/two_column_gap"
+            android:autofillHints="phone"
+            android:labelFor="@id/registerFragment_phoneEditText"
+            android:textColorHint="@color/placeholder"
+            app:boxBackgroundColor="@color/input_background"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="@dimen/input_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_radius"
+            app:boxStrokeColor="@color/placeholder"
+            app:boxStrokeWidth="1.5dp"
+            app:hintTextColor="@color/placeholder"
+            app:layout_constraintBottom_toBottomOf="@id/registerFragment_phonecodeTextInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/registerFragment_phonecodeTextInput"
+            app:layout_constraintTop_toTopOf="@id/registerFragment_phonecodeTextInput"
+            app:layout_constraintWidth_percent="0.6"
+            app:placeholderTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerFragment_phoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone"
+                android:inputType="phone"
+                android:textColor="@color/white"
+                android:textColorHint="@color/placeholder"
+                android:textSize="@dimen/normal_text"
+                tools:text="25468795" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerFragment_passwordTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="password"
+            android:labelFor="@id/registerFragment_passwordEditText"
+            android:textColorHint="@color/placeholder"
+            app:boxBackgroundColor="@color/input_background"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="@dimen/input_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_radius"
+            app:boxStrokeColor="@color/placeholder"
+            app:boxStrokeWidth="1.5dp"
+            app:endIconCheckable="true"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/placeholder"
+            app:hintTextColor="@color/placeholder"
+            app:layout_constraintBottom_toTopOf="@id/registerFragment_confirmPasswordTextInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerFragment_phonecodeTextInput"
+            app:placeholderTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerFragment_passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/placeholder"
+                android:textSize="@dimen/normal_text"
+                tools:text="contraseña" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerFragment_confirmPasswordTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="password"
+            android:labelFor="@id/registerFragment_confirmPasswordEditText"
+            android:textColorHint="@color/placeholder"
+            app:boxBackgroundColor="@color/input_background"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="@dimen/input_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_radius"
+            app:boxStrokeColor="@color/placeholder"
+            app:boxStrokeWidth="1.5dp"
+            app:endIconCheckable="true"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/placeholder"
+            app:hintTextColor="@color/placeholder"
+            app:layout_constraintBottom_toTopOf="@id/registerFragment_registerButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerFragment_passwordTextInput"
+            app:placeholderTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerFragment_confirmPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/placeholder"
+                android:textSize="@dimen/normal_text"
+                tools:text="contraseña" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/registerFragment_registerButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/input_background"
+            android:elevation="20dp"
+            android:fontFamily="@font/urbanist"
+            android:letterSpacing="0"
+            android:paddingVertical="18dp"
+            android:text="@string/register_text"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:layout_constraintBottom_toTopOf="@id/registerFragment_registerTextContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerFragment_confirmPasswordTextInput" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/registerFragment_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:indicatorColor="@color/help_color"
+            app:layout_constraintBottom_toBottomOf="@id/registerFragment_registerButton"
+            app:layout_constraintDimensionRatio="@string/square"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/registerFragment_registerButton" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/registerFragment_registerTextContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:textAlignment="center"
+            app:flow_horizontalAlign="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerFragment_registerButton">
+
+            <TextView
+                android:id="@+id/registerFragment_registerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/urbanist"
+                android:paddingStart="0dp"
+                android:paddingEnd="3dp"
+                android:text="@string/to_login_text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/registerFragment_registerLink"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/registerFragment_registerLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/urbanist"
+                android:text="@string/to_login_link"
+                android:textColor="@color/help_color"
+                android:textColorHighlight="@color/white"
+                android:textColorLink="@color/main_color"
+                android:textSize="@dimen/button_text"
+                app:layout_constraintBottom_toBottomOf="@id/registerFragment_registerText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/registerFragment_registerText"
+                app:layout_constraintTop_toTopOf="@id/registerFragment_registerText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

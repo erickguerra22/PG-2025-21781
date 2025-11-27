@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:theme="@style/Theme.CiudadanoDigital"
+    tools:context=".ui.activity.MainActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainActivity_fragmentContainer"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/main_nav_graph" />
+
+    <View
+        android:id="@+id/mainActivity_overlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CB646464"
+        android:visibility="gone" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainActivity_sidePanelContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginEnd="100dp"
+        android:background="@color/main_color"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:translationX="-250dp"
+        android:visibility="gone">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivity_profileButton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:elevation="10dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toTopOf="@id/mainActivity_previousChatsLabel"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@id/mainActivity_profileName"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CircleButtonShape"
+            tools:text="S" />
+
+        <TextView
+            android:id="@+id/mainActivity_profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/urbanist"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/mainActivity_profileButton"
+            app:layout_constraintStart_toEndOf="@id/mainActivity_profileButton"
+            app:layout_constraintTop_toTopOf="@id/mainActivity_profileButton"
+            tools:text="Stiv Guerra" />
+
+        <TextView
+            android:id="@+id/mainActivity_previousChatsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/urbanist"
+            android:text="@string/previous_chats_label"
+            android:textColor="#BABABA"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/mainActivity_chatsRecycler"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_profileButton" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mainActivity_chatsRecycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/mainActivity_manageFilesButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainActivity_previousChatsLabel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivity_manageFilesButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#21304D"
+            android:elevation="8dp"
+            android:fontFamily="@font/urbanist"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="@string/manage_documents_label"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:cornerRadius="@dimen/input_radius"
+            app:icon="@drawable/manage_files"
+            app:iconSize="20dp"
+            app:iconTint="#979797"
+            app:layout_constraintBottom_toTopOf="@id/mainActivity_newChatButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivity_newChatButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#21304D"
+            android:elevation="8dp"
+            android:fontFamily="@font/urbanist"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="@string/new_chat_label"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/input_radius"
+            app:icon="@drawable/add"
+            app:iconSize="20dp"
+            app:iconTint="#979797"
+            app:layout_constraintBottom_toTopOf="@id/mainActivity_logoutButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivity_logoutButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="25dp"
+            android:elevation="0dp"
+            android:fontFamily="@font/urbanist"
+            android:paddingHorizontal="20dp"
+            android:stateListAnimator="@null"
+            android:text="@string/logout_label"
+            android:textAllCaps="false"
+            android:textColor="@color/red"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="@dimen/input_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:rippleColor="@android:color/transparent"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
